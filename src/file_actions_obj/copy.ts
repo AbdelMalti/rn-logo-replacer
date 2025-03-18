@@ -17,8 +17,8 @@ export class Copy extends FileOperation {
     async execute(): Promise<void> {
         await super.execute()
         // Making sure that the folders exists
-        ensureFolderExists(this.source)
-        ensureFolderExists(this.destination)
+        const isSourceFolder: boolean = ensureFolderExists(this.source, false)
+        const isDestinationFolder: boolean = ensureFolderExists(this.destination, true)
         
         // Copying the files
         try {
@@ -27,8 +27,6 @@ export class Copy extends FileOperation {
         
             // Copy files
             await fs.copy(this.source, this.destination);
-        
-            console.log(`Files copied from ${this.source} to ${this.destination}`);
           } catch (error) {
             console.error("Error copying files:", error);
           }

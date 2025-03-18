@@ -1,5 +1,5 @@
 export class Icon {
-    protected paths: string[];
+    private readonly paths: string[];
 
     constructor();
     constructor(paths: string[]);
@@ -10,5 +10,9 @@ export class Icon {
         } else {
             this.paths = []
         }
+    }
+
+    getPaths(): string[]{
+        return this.paths;
     }
 }

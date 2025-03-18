@@ -9,6 +9,6 @@ export class FileOperation {
 
     // Common method that could be overridden
     async execute(): Promise<void> {
-        console.log(`Executing ${this.constructor.name} from ${this.source} to ${this.destination}`);
+        console.log(`🏃 Executing ${this.constructor.name} from ${this.source} to ${this.destination}`);
     }
 }

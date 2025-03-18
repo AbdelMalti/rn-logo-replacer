@@ -1,7 +1,7 @@
 import { Icon } from "../icon";
 
 const IosIconPaths: string[] = [
-    "Images.xcassets"
+    "AppIcon.appiconset"
 ]
 
 export class IosIcon extends Icon{
