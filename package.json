@@ -15,6 +15,13 @@
     "type": "git",
     "url": "git+https://github.com/AbdelMalti/rn-logo-replacer.git"
   },
+  "keywords": [
+    "rn",
+    "react-native",
+    "react native",
+    "logo",
+    "icon"
+  ],
   "files": [
     "dist"
   ],
