@@ -2,7 +2,7 @@
   "name": "rn-logo-replacer",
   "version": "1.0.0",
   "description": "This is a project aiming at remplacing the logo of a react native app with a single npx command",
-  "main": "main.js",
+  "main": "src/main.ts",
   "scripts": {
     "change-icon": "npx tsc && node dist/main.js"
   },
