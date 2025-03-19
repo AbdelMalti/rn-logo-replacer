@@ -11,7 +11,6 @@ export function executeCopy(source: string, destination: string, platform: strin
         const fullSourceSubPath: string = path.join(source, subFolder)
         const fullDestinationSubPath: string = path.join(destination, subFolder)
         action = new Copy(fullSourceSubPath, fullDestinationSubPath);
-        console.log(`subFolder : ${subFolder}`);
         action.execute();
     });
 }

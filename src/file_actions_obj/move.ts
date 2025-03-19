@@ -15,8 +15,8 @@ export class Move extends FileOperation {
             const copyObj = new Copy(this.source, this.destination);
             const deleteObj = new Delete(this.source);
             // Move the file asynchronously using fs.promises.rename (it moves the file)
-            copyObj.execute();
-            deleteObj.execute();
+            await copyObj.execute();
+            await deleteObj.execute();
             console.log('File moved successfully!');
         } catch (error) {
             console.error('Error while moving the file:', error);

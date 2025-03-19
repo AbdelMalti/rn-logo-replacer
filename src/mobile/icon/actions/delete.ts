@@ -5,11 +5,11 @@ import { Delete } from "../../../file_actions_obj/delete";
 
 export function executeDelete(source: string, platform: string): void {
     let paths: string[] = formAllPaths(platform);
-    
     let action: FileOperation;
-    for (const subFolder in paths){
+
+    paths.forEach(subFolder => {
         const fullSourceSubPath: string = path.join(source, subFolder)
         action = new Delete(fullSourceSubPath);
         action.execute();
-    }
+    });
 }
