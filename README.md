@@ -7,10 +7,15 @@ This is a project aiming at remplacing the logo of a react native app with a sin
 npm run change-icon
 ```
 ### All arguments
-`--source <Path of a folder to copy>`   
-`--destination <Path of a folder to copy to>` 
 ```
---operation Copy
-            Move
-            Delete
+------------------HELP--------------------
+source             : Must be a valid path or it will be created
+destination        : Must be a valid path or it will be created
+operation          : Copy,Move,Delete
+platform           : android,ios
+------------------------------------------
 ``` 
+### Example
+```
+npm run change-icon -- --operation Copy --platform android,ios --source <SOME PATH> --destination <SOME OTHER PATH>
+```
