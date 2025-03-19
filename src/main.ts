@@ -1,48 +1,27 @@
 #!/usr/bin/env node
 
-import minimist from "minimist";
-import path from "path"
+
+import packageJson from "../package.json";
+
 import { Operation } from "./file_actions_obj/operation"
 import { execute } from "./mobile/icon/actions/actions";
 import { Platform } from "./mobile/icon/platform";
+import { defineCliActions } from "./utils/cliDefinition";
+
+let sourceFolder: string;
+let destinationFolder: string|null = null;
+let operation: string = Operation.Copy ;
+let platformInUse: string[] = [ Platform.Android, Platform.Ios ]
 
 
-const rnAndroidDestinationIconPath: string = "android/app/src/main/res"
-const rnIosDestinationIconPath: string = "ios/WeddifyMobile/Images.xcassets"
+const [cliRnLogoReplacer, cliInput] = defineCliActions();
+cliRnLogoReplacer
+  .name(packageJson.name)
+  .description(packageJson.description)
+  .version(packageJson.version);
 
-console.log(`process.argv : ${process.argv}`)
+cliRnLogoReplacer.parse(process.argv);
 
-const args = minimist(process.argv.slice(2)); // Parse CLI arguments
-
-
-
-// Define arguments
-const sourceFolder: string = args.source || path.join(__dirname, "../source");
-const destinationFolder: string = args.destination || path.join(__dirname, "../destination");
-// We put the COPY operation as the default.
-const operation: string = args.operation || Operation.Copy ;
-const platformInUse: string[] = args.platform || [ Platform.Android, Platform.Ios ] ;
-
-if(args.help) {
-  console.log(`------------------HELP--------------------`);
-  console.log(`source             : Must be a valid path or it will be created`);
-  console.log(`destination        : Must be a valid path or it will be created`);
-  console.log(`operation          : ${Object.values(Operation)}`);
-  console.log(`platform           : ${Object.values(Platform)}`);
-  console.log(`------------------------------------------`);
-  process.exit(0);
-}
-
-if( platformInUse.length > 1 && destinationFolder){
-  console.warn(`⚠️ You chose many platform ${platformInUse} to use only one destination path ${destinationFolder} ... This might be not give the result you are expecting`);
-}
-
-console.log(`-----------------------------------------`);
-console.log(`source             : ${sourceFolder}`);
-console.log(`destination        : ${destinationFolder}`);
-console.log(`operation          : ${operation}`);
-console.log(`platform           : ${platformInUse}`);
-console.log(`-----------------------------------------`);
+execute(cliInput.platform, cliInput.operation, cliInput.source!, cliInput.destination!);
 
 
-execute(sourceFolder, destinationFolder, platformInUse, operation);

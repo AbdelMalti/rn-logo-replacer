@@ -1,6 +1,6 @@
 {
   "name": "rn-logo-replacer",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "This is a project aiming at remplacing the logo of a react native app with a single npx command",
   "main": "dist/main.js",
   "bin": {
@@ -31,6 +31,7 @@
   "dependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/minimist": "^1.2.5",
+    "commander": "^13.1.0",
     "fs-extra": "^11.3.0",
     "minimist": "^1.2.8",
     "path": "^0.12.7"
