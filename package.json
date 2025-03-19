@@ -1,28 +1,38 @@
 {
   "name": "rn-logo-replacer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a project aiming at remplacing the logo of a react native app with a single npx command",
-  "main": "src/main.ts",
+  "main": "dist/main.js",
+  "bin": {
+    "rn-logo-replacer": "dist/main.js"
+  },
   "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
     "change-icon": "npx tsc && node dist/main.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AbdelMalti/rn-logo-replacer.git"
   },
+  "files": [
+    "dist"
+  ],
   "author": "AbdelMalti",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AbdelMalti/rn-logo-replacer/issues"
   },
   "homepage": "https://github.com/AbdelMalti/rn-logo-replacer#readme",
   "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
-    "@types/minimist": "^1.2.5",
     "@types/node": "^22.13.10",
-    "path": "^0.12.7",
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/minimist": "^1.2.5",
+    "fs-extra": "^11.3.0",
+    "minimist": "^1.2.8",
+    "path": "^0.12.7"
   }
 }

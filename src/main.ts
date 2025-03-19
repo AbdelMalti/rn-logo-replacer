@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import minimist from "minimist";
 import path from "path"
 import { Operation } from "./file_actions_obj/operation"
