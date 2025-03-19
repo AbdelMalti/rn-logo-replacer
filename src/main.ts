@@ -1,9 +1,5 @@
 import minimist from "minimist";
 import path from "path"
-// import { FileOperation } from "./file_actions_obj/fileOperation";
-// import { Copy } from "./file_actions_obj/copy";
-// import { Move } from "./file_actions_obj/move";
-// import { Delete } from "./file_actions_obj/delete";
 import { Operation } from "./file_actions_obj/operation"
 import { execute } from "./mobile/icon/actions/actions";
 import { Platform } from "./mobile/icon/platform";
